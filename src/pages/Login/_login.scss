@@ -1,29 +1,23 @@
-.backgroundLogin{
+.login-Background{
   background-image: url("https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  height: 790px;
 
-  .help-recize-background{
-    height: 800px;
+  .login-form {
+    background-color: #1b232ebd;
+    width: 100%;
   }
-  .main-content-login{
-    height: auto;
-
-    .subContent-login{
-      height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .box-dark-login{
-        background-color: #1b232ebd;
-        width: 600px;
-        height: 320px;
-        margin-top: 200px;
-      }
-    }
+  
+  .login-btn:hover{
+    background-color:  rgb(37, 37, 37);
+    color: white;
   }
+  .forgot-password a{
+    color: white;
+  }
+  
 }
 
 /*#############FORM LOGIN###################*/
@@ -45,17 +39,6 @@
     background-color:  rgb(37, 37, 37);
     color: white;
   }
-}
-/*#############REGISTER BUTTON###################*/
-.register-button{
-margin-top: 10px;
-width: 100%;
-background-color: rgba(7, 7, 252, 0.644);
-color: white;
-}
-.register-button:hover{
-  background-color: rgba(76, 0, 255, 0.384);
-  color: white;
 }
 
 

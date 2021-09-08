@@ -121,10 +121,8 @@ export const loginUserWithCookie = async() =>{
   const response = await fetch(baseUrl + `/api/v1/users/${id}`, cookiesConfig)
   const cookieData = await response.json();
   if (!cookieData.error) {
-    console.log("is true");
     return true;
   } else {
-    console.log("is false");
     return false;
   }
 };
