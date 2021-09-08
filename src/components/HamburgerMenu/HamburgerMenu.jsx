@@ -39,48 +39,18 @@ const HamburgerMenu = ({ auth }) => {
         >
           Accueil
         </NavLink>
-        <NavLink
-          exact
-          to="/listing"
-          className="menu-link"
-          activeClassName="nav-active"
-          onClick={handleMenu}
-        >
-          One appartment
-        </NavLink>
-        {auth && (
-          <NavLink
-            exact
-            to="/profile"
-            className="menu-link"
-            activeClassName="nav-active"
-            onClick={handleMenu}
-          >
-            Profile
-          </NavLink>
-        )}
-        {!auth && (
+        {auth ?
           <>
             <NavLink
               exact
-              to="/register"
+              to="/profile"
               className="menu-link"
+              activeClassName="nav-active"
               onClick={handleMenu}
             >
-              Sign Up
+              Profil
             </NavLink>
-            <NavLink
-              exact
-              to="/login"
-              className="menu-link"
-              onClick={handleMenu}
-            >
-              Log In
-            </NavLink>
-          </>
-        )}
-        {auth && (
-          <>
+
             <NavLink
               exact
               to="/create-property"
@@ -100,7 +70,26 @@ const HamburgerMenu = ({ auth }) => {
               Log Out{" "}
             </button>
           </>
-        )}
+          :
+          <>
+            <NavLink
+              exact
+              to="/register"
+              className="menu-link"
+              onClick={handleMenu}
+            >
+              Sign Up
+            </NavLink>
+            <NavLink
+              exact
+              to="/login"
+              className="menu-link"
+              onClick={handleMenu}
+            >
+              Log In
+            </NavLink>
+          </>
+        }
       </div>
     </>
   );

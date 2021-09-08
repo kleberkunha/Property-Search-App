@@ -36,15 +36,7 @@ export const listingsFetch = () => {
 };
 
 // BELOW IS THE FUNCTION TO CREATE A NEW USER
-export const registerFetch = (username, email, password, passwordConfirmation) => {
-  const data = {
-    user: {
-      username,
-      email,
-      password,
-      password_confirmation: passwordConfirmation,
-    },
-  };
+export const registerFetch = (userData) => {
   return (dispatch) => {
     let token
     dispatch(fetchRegisterRequest());
@@ -53,7 +45,7 @@ export const registerFetch = (username, email, password, passwordConfirmation) =
       headers: {
         "Content-type": "application/json"
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(userData),
     })
       .then((response) => {
         if (response.headers.get("authorization")) {
