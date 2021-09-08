@@ -3,11 +3,13 @@ import './UserProfileResponsive/UserProfileResponsive.scss';
 import HousingList from 'components/HousingList/HousingList';
 import Loading from 'components/Loading/Loading';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { listingsFetch, usersFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
 
 const  UserProfile = () => {
+  const [userListings, setUserListings] = useState();
+
   const user_id = parseInt(Cookies.get('id_cookie'));
 
   const dispatch = useDispatch()
@@ -22,22 +24,24 @@ const  UserProfile = () => {
     dispatch(usersFetch())
   }
 
-  useEffect(() => {
-    getListings();
-    getUsers();
-    console.log("test");
-  },[getUsers, users]);
-
-
-  const userListings = () => {
-    let filtered = listings.listings
+  const filterUserListing = () => {
+    if (listings.listings) {
+      let filtered = listings.listings
       .filter((listing) => {
         return listing.user_id === user_id
       })
-    return filtered
+      setUserListings(filtered)
+    }
   }
-  console.log( listings.listings ?  userListings() : "test");
-  
+
+  useEffect(() => {
+    getListings();
+    getUsers();
+    filterUserListing();
+  },[]);
+
+
+
 
 
   return (
@@ -61,7 +65,7 @@ const  UserProfile = () => {
                     <h1>Details</h1>
                     <div className="row align-details">
                       <div className="bio-row">
-                          <p>Email : {users.user ? users.user[user_id-1].email : "waiting"}</p>
+                          <p>Email : {users.user && user_id ? users.user[user_id-1].email : "waiting"}</p>
                       </div>
                     </div>
                   </div>
@@ -70,13 +74,9 @@ const  UserProfile = () => {
                 <div className="container main-content-cards-profile mt-5">
                   <div className="row">
                     <div className="col-sm-12">
-                      {
-                        listings.listings ?
-
-                        <HousingList data={listings.listings} />
-                        :
-                        <Loading />
-                      }
+                    {userListings ? 
+                      <HousingList data={userListings} /> : <Loading />
+                    }
                     </div>
                   </div>
                 </div>
