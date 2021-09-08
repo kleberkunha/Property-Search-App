@@ -2,11 +2,37 @@ import { Link } from "react-router-dom";
 import './UserProfileResponsive/UserProfileResponsive.scss';
 import HousingList from 'components/HousingList/HousingList';
 import Loading from 'components/Loading/Loading';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { listingsFetch, usersFetch } from 'services/apiManager';
+import Cookies from "js-cookie";
 
 const  UserProfile = () => {
+  const user_id = parseInt(Cookies.get('id_cookie'));
 
+  const dispatch = useDispatch()
   const listings = useSelector(state => state.listings)
+  const users = useSelector(state => state.users)
+
+
+  const getListings = () => {
+    dispatch(listingsFetch())
+  }
+
+  const getUsers = () => {
+    dispatch(usersFetch())
+  }
+
+  useEffect(() => {
+    getListings();
+    getUsers();
+    console.log("test");
+  },[]);
+
+
+
+  
+
 
   return (
     <>

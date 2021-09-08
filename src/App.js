@@ -34,7 +34,7 @@ function App() {
     checkAuth().then(res => {
       setLoading(true);
     })
-  });
+  }, []);
 
 
   const checkAuth = async() => {
