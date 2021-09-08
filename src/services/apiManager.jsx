@@ -4,6 +4,9 @@ import { fetchCategoriesSuccess } from "store/actions/categoryActions";
 import { fetchCategoriesRequest } from "store/actions/categoryActions";
 import { createListingRequest } from "store/actions/listingActions";
 import { createListingSuccess } from "store/actions/listingActions";
+import { deleteListingRequest } from "store/actions/listingActions";
+import { deleteListingSuccess } from "store/actions/listingActions";
+import { deleteListingFailure } from "store/actions/listingActions";
 import { createListingFailure } from "store/actions/listingActions";
 import { fetchListingsFailure, fetchListingsRequest, fetchListingsSuccess } from "store/actions/listingActions";
 import { fetchLocationsFailure } from "store/actions/locationsActions";
@@ -213,5 +216,27 @@ export const createListing = (data) => {
         });
       }
     });
+  };
+};
+
+// BELOW IS THE FUNCTION TO CREATE A LISTING
+export const deleteListing = (id) => {
+  return (dispatch) => {
+    dispatch(deleteListingRequest());
+    fetch(baseUrl + `/api/v1/properties/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${Cookies.get("token_cookie")}`,
+      },
+    }).then((response) => response.json())
+    .then((response)=> {
+        if (response.errors) {
+          dispatch(deleteListingFailure(response.errors));
+        } else {
+          dispatch(deleteListingSuccess(response));
+          console.log(response);
+        }
+      });
   };
 };
