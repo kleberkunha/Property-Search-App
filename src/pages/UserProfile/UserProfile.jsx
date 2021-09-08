@@ -14,7 +14,6 @@ const  UserProfile = () => {
   const listings = useSelector(state => state.listings)
   const users = useSelector(state => state.users)
 
-
   const getListings = () => {
     dispatch(listingsFetch())
   }
@@ -27,10 +26,17 @@ const  UserProfile = () => {
     getListings();
     getUsers();
     console.log("test");
-  },[]);
+  },[getUsers, users]);
 
 
-
+  const userListings = () => {
+    let filtered = listings.listings
+      .filter((listing) => {
+        return listing.user_id === user_id
+      })
+    return filtered
+  }
+  console.log( listings.listings ?  userListings() : "test");
   
 
 
@@ -46,12 +52,7 @@ const  UserProfile = () => {
                       <Link to="#">
                           <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""/>
                       </Link>
-                      <h1>Camila Smith</h1>
-                      <p>deydey@theEmail.com</p>
                   </div>
-                  <ul className="nav nav-pills nav-stacked">
-                    <li><Link to="#"> <i className="fa fa-edit"></i> Edit profile</Link></li>
-                  </ul>
                 </div>
               </div>
               <div className="profile-info col-md-9">
@@ -60,24 +61,12 @@ const  UserProfile = () => {
                     <h1>Details</h1>
                     <div className="row align-details">
                       <div className="bio-row">
-                          <p>First Name : Camila</p>
-                      </div>
-                      <div className="bio-row">
-                          <p>Last Name : Smith</p>
-                      </div>
-                      <div className="bio-row">
-                          <p>Country : Australia</p>
-                      </div>
-                      <div className="bio-row">
-                          <p>Email : jsmith@flatlab.com</p>
-                      </div>
-                      <div className="bio-row">
-                          <p> (33) 03 4567890</p>
+                          <p>Email : {users.user ? users.user[user_id-1].email : "waiting"}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <h3 className="my-itens">My itens</h3>
+                <h3 className="my-itens">My items</h3>
                 <div className="container main-content-cards-profile mt-5">
                   <div className="row">
                     <div className="col-sm-12">

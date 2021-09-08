@@ -26,7 +26,6 @@ import HamburgerMenu from 'components/HamburgerMenu/HamburgerMenu';
 
 function App() {
 
-  const currentUser = useSelector((state) => state.users);
   const login = useSelector((state) => state.users.login);
   const [loading, setLoading] = useState(false);
 
@@ -73,7 +72,7 @@ function App() {
             </Route>
             <Route path="/listing/:slug" exact component={Apartment}/>
             <Route path="/ApartmentsProfile" component={AdProfile} />
-            <PrivateRoute path="/profile" exact component={UserProfile} />
+            <Route path="/profile" exact component={UserProfile} />
             <Route path="/create-property" component={CreateProperty}/>
             <Route path="/conditions" component={Conditions}/>
             <Route component={NotFound}/>
