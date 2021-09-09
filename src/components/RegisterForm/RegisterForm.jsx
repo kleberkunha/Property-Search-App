@@ -26,7 +26,7 @@ const RegisterForm = () => {
 };
 
   return (
-    <div className="register-form px-4 py-5 rounded w-50">
+    <div className="register-form px-4 py-5 rounded">
       <form className="" onSubmit={ (e) => handleLogin(e) }>
         <div className="form-row">
           <div className="form-group">
@@ -45,7 +45,7 @@ const RegisterForm = () => {
             value={passwordConfirmation} onChange={ (e) => setPasswordConfirmation(e.target.value) }/>
           </div>
         </div>
-        <input type="submit" className="btn btn-light register-btn mt-5 w-100" value="Login" />
+        <input type="submit" className="btn btn-light register-btn mt-5 w-100" value="Register" />
       </form>
     </div>
   );
