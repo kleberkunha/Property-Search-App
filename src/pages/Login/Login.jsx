@@ -16,10 +16,8 @@ const Login = () => {
                 <div className="container subContent-login">
                   <div className="row">
                     <div className="col-sm">
-                      <div className="box-dark-login">
+                      <div className="box-dark-login rounded">
                       <LoginForm />
-                      {/* { userState.login !== "" ? ( <Redirect to={{ pathname: '/profile' }} /> ) : ( <LoginForm /> )  } */}
-                      {/* { userState.login == "" ? ( <LoginForm /> ) : ( <Redirect to={{ pathname: '/profile' }} /> )  } */}
                       </div>
                     </div>
                   </div>
