@@ -41,3 +41,24 @@ export const createListingFailure = (error) => {
     error,
   };
 };
+
+export const DELETE_LISTING_REQUEST = "DELETE_LISTING_REQUEST";
+export const DELETE_LISTING_SUCCESS = "DELETE_LISTING_SUCCESS";
+export const DELETE_LISTING_FAILURE = "DELETE_LISTING_FAILURE";
+
+export const deleteListingRequest = () => {
+  return {
+    type: DELETE_LISTING_REQUEST,
+  };
+};
+export const deleteListingSuccess = () => {
+  return {
+    type: DELETE_LISTING_SUCCESS,
+  };
+};
+export const deleteListingFailure = (error) => {
+  return {
+    type: DELETE_LISTING_FAILURE,
+    error,
+  };
+};
