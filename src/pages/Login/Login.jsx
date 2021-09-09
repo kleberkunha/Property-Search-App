@@ -8,23 +8,9 @@ const Login = () => {
 
   return (
     <>
-      <div className="backgroundLogin">
-        <div className="help-recize-background">
-          <div className="container-fluid main-content-login">
-            <div className="row">
-              <div className="col-sm">
-                <div className="container subContent-login">
-                  <div className="row">
-                    <div className="col-sm">
-                      <div className="box-dark-login rounded">
-                      <LoginForm />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="login-Background d-flex align-items-center py-5">
+        <div className="d-flex justify-content-center col-12 my-5">
+          <LoginForm />
         </div>
       </div>
     </>

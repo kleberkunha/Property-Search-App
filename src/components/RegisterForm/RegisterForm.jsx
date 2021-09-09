@@ -26,7 +26,7 @@ const RegisterForm = () => {
 };
 
   return (
-    <div className="register-form px-4 py-5 rounded w-50">
+    <div className="register-form px-4 py-5 rounded">
       <form className="" onSubmit={ (e) => handleLogin(e) }>
         <div className="form-row">
           <div className="form-group">
