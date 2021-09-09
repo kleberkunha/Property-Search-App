@@ -26,7 +26,7 @@ const Navbar = ({auth}) => {
         </NavLink>
         {auth && (
           <NavLink exact to="/profile" activeClassName="nav-active">
-            Profile
+            Profil
           </NavLink>
         )}
       </div>
