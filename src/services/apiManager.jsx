@@ -120,7 +120,6 @@ export const loginUserWithCookie = async() =>{
   } else {
     return false;
   }
-
 };
 
 
