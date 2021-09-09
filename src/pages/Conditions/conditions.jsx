@@ -2,9 +2,9 @@ const Conditions = () => {
   return (
     <>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm main-condition">
+    <div className="container">
+      <div className="row">
+        <div className="col-sm main-condition">
           <h1>Conditions de Service</h1>
 
           <h3>Conditions de Service pour les utilisateurs européens</h3>

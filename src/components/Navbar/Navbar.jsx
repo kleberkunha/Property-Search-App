@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { logoutUser } from "services/apiManager";
 import Cookies from 'js-cookie';
-import logo from "../../assets/images/Artboard_1_copy.png";
+import logo from "assets/images/Artboard_1_copy.png";
 
 const Navbar = ({auth}) => {
   
@@ -23,9 +23,6 @@ const Navbar = ({auth}) => {
         <img src={logo} alt="logo" className='logo'></img>
         <NavLink exact to="/" activeClassName="nav-active">
           Accueil
-        </NavLink>
-        <NavLink exact to="/listing" activeClassName="nav-active">
-          One appartment
         </NavLink>
         {auth && (
           <NavLink exact to="/profile" activeClassName="nav-active">

@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import ApartmentCard from "components/CardsApComponent/ApartmentCard";
 import './UserProfileResponsive/UserProfileResponsive.scss';
 import HousingList from 'components/HousingList/HousingList';
 import Loading from 'components/Loading/Loading';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const  UserProfile = () => {
 
@@ -55,7 +54,7 @@ const  UserProfile = () => {
                 <h3 className="my-itens">My itens</h3>
                 <div className="container main-content-cards-profile mt-5">
                   <div className="row">
-                    <div class="col-sm-12">
+                    <div className="col-sm-12">
                       {
                         listings.listings ?
 

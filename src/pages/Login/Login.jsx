@@ -10,12 +10,12 @@ const Login = () => {
     <>
       <div className="backgroundLogin">
         <div className="help-recize-background">
-          <div class="container-fluid main-content-login">
-            <div class="row">
-              <div class="col-sm">
+          <div className="container-fluid main-content-login">
+            <div className="row">
+              <div className="col-sm">
                 <div className="container subContent-login">
-                  <div class="row">
-                    <div class="col-sm">
+                  <div className="row">
+                    <div className="col-sm">
                       <div className="box-dark-login">
                       <LoginForm />
                       {/* { userState.login !== "" ? ( <Redirect to={{ pathname: '/profile' }} /> ) : ( <LoginForm /> )  } */}

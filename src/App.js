@@ -15,6 +15,7 @@ import UserProfile from 'pages/UserProfile/UserProfile';
 import CreateProperty from 'pages/CreateProperty/CreateProperty';
 import Conditions from 'pages/Conditions/conditions';
 import Apartment from 'pages/Apartment/Apartment';
+import NotFound from 'pages/NotFound/NotFound';
 
 // COMPONENTS IMPORTS
 import Navbar from 'components/Navbar/Navbar';
@@ -27,26 +28,23 @@ function App() {
 
   const currentUser = useSelector((state) => state.users);
   const login = useSelector((state) => state.users.login);
-  const [isAuthTrue, setIsAuthTrue] = useState();
-  // the loading will be used for private routes such as profile
   const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   checkAuth().then(res => {
-  //     setIsAuthTrue(res);
-  //     setLoading(true);
-  //   })
-  // });
+  useEffect(() => {
+    checkAuth().then(res => {
+      setLoading(true);
+    })
+  });
 
 
-  // const checkAuth = async() => {
-  //   return await (loginUserWithCookie());
-  // }
+  const checkAuth = async() => {
+    return await (loginUserWithCookie());
+  }
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <>
       { loading ? ( 
-        < Route {...rest} render={ props => ( isAuthTrue ? ( <Component {...props} />) : (  <Redirect to={{ pathname: '/login' }} /> ) )} />)
+        < Route {...rest} render={ props => ( isAuth ? ( <Component {...props} />) : (  <Redirect to={{ pathname: '/login' }} /> ) )} />)
         : (
           <Loading type='spin' color='#454545' />
         )
@@ -59,8 +57,6 @@ function App() {
       login === '' &&
         Cookies.get('token_cookie') === undefined ? false : true)
   };
-
-  // <Route path="/profile" component={UserProfile} />
 
   return (
       <>
@@ -80,6 +76,7 @@ function App() {
             <PrivateRoute path="/profile" exact component={UserProfile} />
             <Route path="/create-property" component={CreateProperty}/>
             <Route path="/conditions" component={Conditions}/>
+            <Route component={NotFound}/>
           </Switch>
           <Footer/>
         </BrowserRouter>

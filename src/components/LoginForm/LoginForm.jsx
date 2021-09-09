@@ -30,11 +30,11 @@ const LoginForm = () => {
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="inputEmail4" className="text-white">E-mail*</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" value={email} onChange={ (e) => setEmail(e.target.value) }/>
+            <input type="email" className="form-control" id="inputEmail4" placeholder="Email" value={email} onChange={ (e) => setEmail(e.target.value) }/>
           </div>
           <div className="form-group">
             <label htmlFor="inputPassword4" className="text-white">Password*</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" value={password} onChange={ (e) => setPassword(e.target.value) }/>
+            <input type="password" className="form-control" id="inputPassword4" placeholder="Password" value={password} onChange={ (e) => setPassword(e.target.value) }/>
           </div>
         </div>
         <div className="forgot-password mt-3">
