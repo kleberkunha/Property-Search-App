@@ -45,7 +45,7 @@ const RegisterForm = () => {
             value={passwordConfirmation} onChange={ (e) => setPasswordConfirmation(e.target.value) }/>
           </div>
         </div>
-        <input type="submit" className="btn btn-light register-btn mt-5 w-100" value="Login" />
+        <input type="submit" className="btn btn-light register-btn mt-5 w-100" value="Sign Up" />
       </form>
     </div>
   );
