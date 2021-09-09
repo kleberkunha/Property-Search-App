@@ -12,15 +12,32 @@ const ApartmentCard = ({listing}) => {
 
   return (
     <>
-      <div className="mx-4" onClick={() => history.push(`/listing/${listing.id}`)}>
+      <div
+        className="mx-4 "
+        onClick={() => history.push(`/listing/${listing.id}`)}
+      >
         <div className="row">
-          <div className="col-sm-10 card" style={{width: "17rem"}}>
-            <img className="card-img-top" src={listing.photo} alt="annonce illustrée"/>
+          <div
+            className="col-sm-10 card listing-card"
+            style={{ width: "17rem" }}
+          >
+            <div className='img-box'>
+              <img
+                className="card-img-top"
+                src={listing.photo}
+                alt="annonce illustrée"
+              />
+            </div>
             <div className="card-body">
               <h5 className="card-title">{listing.title}</h5>
-              <p className="card-text">{listing.price}</p>
+              <p className="card-text">{listing.price} €/semaine</p>
               <p className="card-text">{listing.category}</p>
-              <a className="btn btn-primary stretched-link" onClick={() => history.push(`/listing/${listing.id}`)} href="">Je fonce</a>
+              <p
+                className="btn btn-primary stretched-link"
+                onClick={() => history.push(`/listing/${listing.id}`)}
+              >
+                Je fonce
+              </p>
             </div>
           </div>
         </div>
